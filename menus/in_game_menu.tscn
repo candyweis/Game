@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7oy0knfwcelw"]
+
+[ext_resource type="Script" path="res://menus/in_game_menu.gd" id="1_8qjc4"]
+
+[node name="InGameMenu" type="CanvasLayer"]
+script = ExtResource("1_8qjc4")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -69.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Button" type="Button" parent="MarginContainer"]
+layout_mode = 2
+text = "В меню"
+
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
