@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvth56j6xkld2"]
+
+[ext_resource type="Script" path="res://menus/hall_of_fame.gd" id="1_wqa8m"]
+
+[node name="HallOfFame" type="CanvasLayer"]
+script = ExtResource("1_wqa8m")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.5
+offset_top = -30.5
+offset_right = 30.5
+offset_bottom = 30.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HiScore" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Лучший рекорд: ???"
+horizontal_alignment = 1
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Выход"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

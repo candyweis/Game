@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://cxxcbeb4qjbwn"]
+[gd_scene load_steps=24 format=3 uid="uid://cxxcbeb4qjbwn"]
 
 [ext_resource type="Script" path="res://Items/item.gd" id="1_e86jr"]
 [ext_resource type="Texture2D" uid="uid://bjt3hy3bhj54x" path="res://res/Items/Fruits/Strawberry.png" id="1_sbkp8"]
 [ext_resource type="AudioStream" uid="uid://00vjcsvkgoxl" path="res://res/Sounds/blop1.mp3" id="3_gdiew"]
+[ext_resource type="AudioStream" uid="uid://c6l3jw8okqdt7" path="res://res/Sounds/voice4.mp3" id="4_01bpj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k0pds"]
 radius = 5.0
@@ -147,8 +148,11 @@ scale = Vector2(1, 0.96875)
 sprite_frames = SubResource("SpriteFrames_4ntio")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.986023
+frame_progress = 0.218017
 
 [node name="Blop1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_gdiew")
 autoplay = true
+
+[node name="OnRecord" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_01bpj")

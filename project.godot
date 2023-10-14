@@ -15,10 +15,18 @@ run/main_scene="res://menus/main_menu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlovalVars="*res://Global/Gloval_vars.gd"
+
 [display]
 
-window/size/viewport_width=480
-window/size/viewport_height=480
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 
@@ -56,3 +64,4 @@ ui_right={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.380392, 0.54902, 0.823529, 1)

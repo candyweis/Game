@@ -1,0 +1,8 @@
+extends CanvasLayer
+
+func _ready() -> void:
+	$MarginContainer/VBoxContainer/HiScore.text = "Лучший рекорд: " + str( GlovalVars.hi_score )
+
+
+func _on_exit_pressed() -> void:
+	get_tree().change_scene_to_file("res://menus/main_menu.tscn")

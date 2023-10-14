@@ -3,9 +3,10 @@
 [ext_resource type="Script" path="res://menus/in_game_menu.gd" id="1_8qjc4"]
 
 [node name="InGameMenu" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_8qjc4")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -13,8 +14,53 @@ offset_left = -69.0
 offset_bottom = 40.0
 grow_horizontal = 0
 
-[node name="Button" type="Button" parent="MarginContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Score" type="Label" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "Очки: ???"
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="HiScore" type="Label" parent="HBoxContainer/MarginContainer3"]
+layout_mode = 2
+text = "Рекорд: ???"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer/MarginContainer"]
 layout_mode = 2
 text = "В меню"
 
-[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
+[node name="ConfirmationMenu" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -48.0
+offset_right = 52.5
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AreYouSure" type="Label" parent="ConfirmationMenu"]
+layout_mode = 2
+text = "Вы уверены?"
+
+[node name="Yes" type="Button" parent="ConfirmationMenu"]
+layout_mode = 2
+text = "Да"
+
+[node name="No" type="Button" parent="ConfirmationMenu"]
+layout_mode = 2
+text = "Нет"
+
+[connection signal="pressed" from="HBoxContainer/MarginContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ConfirmationMenu/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="ConfirmationMenu/No" to="." method="_on_no_pressed"]

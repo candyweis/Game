@@ -1,16 +1,27 @@
 extends CharacterBody2D
 
+@export var tilemap : TileMap
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+var has_key : bool = false
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready() -> void:
-	anim.play("Idle")
+	var r = tilemap.get_used_rect()
+	var vp = tilemap.get_viewport_rect()
+	var qs = tilemap.cell_quadrant_size
+	$Camera2D.limit_left = r.position.x * qs
+	$Camera2D.limit_top = r.position.y * qs
+	$Camera2D.limit_right = $Camera2D.limit_left + r.size.x * qs
+	$Camera2D.limit_bottom = $Camera2D.limit_top + r.size.y * qs
+	$Camera2D.limit_top = min($Camera2D.limit_top, $Camera2D.limit_bottom - vp.size.y)
+
+
 
 func _physics_process(delta):
 	# Add the gravity.

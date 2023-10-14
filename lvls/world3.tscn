@@ -585,7 +585,8 @@ layer_0/tile_data = PackedInt32Array(1703936, 393216, 4, 1769472, 393216, 5, 183
 position = Vector2(433.952, 414.799)
 next_scene = "res://world3.tscn"
 
-[node name="Player" parent="." instance=ExtResource("3_pvtmk")]
+[node name="Player" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("3_pvtmk")]
 position = Vector2(32.9964, 372.616)
+tilemap = NodePath("../TileMap")
 
 [node name="InGameMenu" parent="." instance=ExtResource("4_q8wti")]

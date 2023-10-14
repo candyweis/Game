@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4qol0l5v1d18"]
+
+[ext_resource type="Script" path="res://Items/item.gd" id="1_bfmlt"]
+[ext_resource type="Texture2D" uid="uid://dsaqelpn6hlxe" path="res://res/Snoopeth's Things/1px/11a.png" id="2_xy4nt"]
+[ext_resource type="AudioStream" uid="uid://00vjcsvkgoxl" path="res://res/Sounds/blop1.mp3" id="3_t22o4"]
+[ext_resource type="AudioStream" uid="uid://c6l3jw8okqdt7" path="res://res/Sounds/voice4.mp3" id="4_ifiob"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k0pds"]
+radius = 5.0
+height = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r23xm"]
+atlas = ExtResource("2_xy4nt")
+region = Rect2(0, 0, 16, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ntio"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r23xm")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Strawberry" type="Area2D"]
+script = ExtResource("1_bfmlt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_k0pds")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5.96046e-08, -5.96046e-08)
+scale = Vector2(0.96875, 0.96875)
+sprite_frames = SubResource("SpriteFrames_4ntio")
+animation = &"Idle"
+
+[node name="Blop1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_t22o4")
+autoplay = true
+
+[node name="OnRecord" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ifiob")

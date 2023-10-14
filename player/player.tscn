@@ -371,4 +371,9 @@ frame_progress = 0.350352
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea"]
 shape = SubResource("CapsuleShape2D_ph4uf")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+limit_smoothed = true
+position_smoothing_enabled = true
+
 [connection signal="area_entered" from="PickUpArea" to="." method="_on_pick_up_area_area_entered"]

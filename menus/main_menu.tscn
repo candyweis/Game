@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bt8cpbikho63s"]
+[gd_scene load_steps=4 format=3 uid="uid://bt8cpbikho63s"]
 
 [ext_resource type="Script" path="res://menus/main_menu.gd" id="1_ew3e0"]
+[ext_resource type="Texture2D" uid="uid://d0lng14rlfqna" path="res://res/Background/MainMenu.jpg" id="2_j1wv1"]
+[ext_resource type="FontFile" uid="uid://do2dj60ty1elp" path="res://res/Throne and Liberty/TLHeader-Regular-RUS.otf" id="2_x0fym"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_ew3e0")
@@ -25,19 +27,41 @@ layout_mode = 2
 
 [node name="StartGame" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x0fym")
+theme_override_font_sizes/font_size = 90
 text = "Начать"
-
-[node name="Option" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Настройки"
 
 [node name="HIscore" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x0fym")
+theme_override_font_sizes/font_size = 90
 text = "Рекорды"
+
+[node name="Option" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x0fym")
+theme_override_font_sizes/font_size = 90
+text = "Настройки"
 
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x0fym")
+theme_override_font_sizes/font_size = 90
 text = "Выход"
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="StillParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="MainMenu" type="Sprite2D" parent="ParallaxBackground/StillParallaxLayer"]
+position = Vector2(959, 536.5)
+scale = Vector2(2.37376, 1.71044)
+texture = ExtResource("2_j1wv1")
+
+[node name="MoveParalaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/MoveParalaxLayer"]
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HIscore" to="." method="_on_h_iscore_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
