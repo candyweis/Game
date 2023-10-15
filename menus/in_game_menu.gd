@@ -3,8 +3,9 @@ extends Node
 
 @onready var score = $HBoxContainer/MarginContainer2/Score
 @onready var hi_score = $HBoxContainer/MarginContainer3/HiScore
+@onready var player = $"../Player"
 var isMouseVisible = false
-var save_path = "use://savegame.save"
+var save_path = "user://savegame.save"
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -53,12 +54,16 @@ func _on_full_screen_pressed() -> void:
 func save_game():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	file.store_var(GlovalVars.score)
-
+	file.store_var(GlovalVars.hi_score)
+	file.store_var(player.position.x)
+	file.store_var(player.position.y)
 func load_game():
 	var file = FileAccess.open(save_path, FileAccess.READ)
-#	GlovalVars = file.get_var(GlovalVars.score)
-
-
+	GlovalVars.score = file.get_var(GlovalVars.score)
+	GlovalVars.hi_score = file.get_var(GlovalVars.hi_score)
+	player.position.x = file.get_var(player.position.x)
+	player.position.y = file.get_var(player.position.y)
+	
 func _on_save_pressed() -> void:
 	save_game()
 	

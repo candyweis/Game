@@ -13,4 +13,5 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_player_entered(body: Node2D) -> void:
 	if body.name == "Player":
+#		body.health -= 35
 		body.on_death()

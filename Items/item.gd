@@ -5,7 +5,7 @@ enum item_type {ITEM_FRUIT, ITEM_KEY, ITEM_D_JUMP, ITEM_BONUS}
 
 @export var points : int = 1 
 var is_picked : bool = false
-#onready var timer = $Timer
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

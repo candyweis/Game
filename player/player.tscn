@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dsmn8iqavfopb" path="res://res/Main Characters/Pink Man/Wall Jump (32x32).png" id="8_1m5oh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xcelr"]
+height = 24.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ei08y"]
 atlas = ExtResource("2_ge7jy")
@@ -356,20 +357,18 @@ height = 38.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ali7s"]
 radius = 12.0
-height = 34.0
+height = 32.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 18
 script = ExtResource("1_ddoja")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CapsuleShape2D_xcelr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pleac")
-animation = &"Wall jump"
-frame_progress = 0.350352
+animation = &"Run"
 
 [node name="PickUpArea" type="Area2D" parent="."]
 visible = false
@@ -380,10 +379,12 @@ shape = SubResource("CapsuleShape2D_ph4uf")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource("CapsuleShape2D_ali7s")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+process_callback = 0
 limit_smoothed = true
 position_smoothing_enabled = true
 

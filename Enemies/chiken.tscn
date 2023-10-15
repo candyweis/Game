@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c4v4oe00ltu32" path="res://res/Enemies/Chicken/Run (32x34).png" id="4_xtc6t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ardu4"]
+size = Vector2(20, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vn6jw"]
 atlas = ExtResource("2_7vijo")
@@ -255,10 +256,10 @@ collision_mask = 16
 script = ExtResource("1_2pmb7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_ardu4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3aj3g")
-animation = &"Hit"
+animation = &"Run"
 autoplay = "Run"
-frame_progress = 0.090107

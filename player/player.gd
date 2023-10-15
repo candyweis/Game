@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -400.0
 var has_key : bool = false
 var has_double_jump : bool = false
 var can_double_jump : bool = false
+var healt = 100
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
