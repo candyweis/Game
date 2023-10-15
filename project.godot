@@ -18,6 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlovalVars="*res://Global/Gloval_vars.gd"
+GameManager="*res://GameManager.gd"
+Instance="*res://Instance.gd"
+InstanceHandler="*res://InstanceHandler.gd"
 
 [display]
 

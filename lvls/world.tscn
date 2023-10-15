@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://of4uvdrc54fh"]
 
 [ext_resource type="PackedScene" uid="uid://b2tcyhlpgo6oh" path="res://player/player.tscn" id="1_8dvm2"]
-[ext_resource type="Script" path="res://lvls/world.gd" id="1_g83wq"]
+[ext_resource type="Script" path="res://lvls/SceneManager.gd" id="1_ndb87"]
 [ext_resource type="Texture2D" uid="uid://ctqxnfl8y646v" path="res://res/Terrain/Terrain (16x16).png" id="2_n4u03"]
 [ext_resource type="PackedScene" uid="uid://bqsx04u6sxhge" path="res://ExitDoor/exit_door.tscn" id="3_m326i"]
 [ext_resource type="PackedScene" uid="uid://b7oy0knfwcelw" path="res://menus/in_game_menu.tscn" id="4_fd38v"]
@@ -581,8 +581,9 @@ physics_layer_0/collision_mask = 16
 sources/0 = SubResource("TileSetAtlasSource_cu0rn")
 
 [node name="World" type="Node2D"]
+position = Vector2(1, 1)
 scale = Vector2(1.00011, 0.995664)
-script = ExtResource("1_g83wq")
+script = ExtResource("1_ndb87")
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(0.983606, 1.03466)
@@ -628,3 +629,11 @@ position = Vector2(-673.926, 391.698)
 
 [node name="Double_jump" parent="." instance=ExtResource("10_d2lfj")]
 position = Vector2(-779.914, 351.524)
+
+[node name="SpawnLocanions" type="Node2D" parent="."]
+
+[node name="0" type="Node2D" parent="SpawnLocanions" groups=["PlayerSpawnPoint"]]
+position = Vector2(-28.9968, 388.685)
+
+[node name="1" type="Node2D" parent="SpawnLocanions" groups=["PlayerSpawnPoint"]]
+position = Vector2(-124.986, 389.69)

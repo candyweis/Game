@@ -15,3 +15,10 @@ func _on_exit_pressed() -> void:
 
 func _on_h_iscore_pressed() -> void:
 	get_tree().change_scene_to_file("res://menus/hall_of_fame.tscn")
+
+
+
+
+
+func _on_multiplayer_pressed() -> void:
+	get_tree().change_scene_to_file("res://control.tscn")
