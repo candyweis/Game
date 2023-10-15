@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 var direction := -1
 var spawn_position : Vector2

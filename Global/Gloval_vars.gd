@@ -1,5 +1,6 @@
 extends Node
 
 
-var score : int
+var score = 0
 var hi_score : int
+

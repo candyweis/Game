@@ -61,6 +61,22 @@ text = "Да"
 layout_mode = 2
 text = "Нет"
 
+[node name="Save" type="Button" parent="ConfirmationMenu"]
+layout_mode = 2
+text = "Сохранить Игру"
+
+[node name="Load" type="Button" parent="ConfirmationMenu"]
+layout_mode = 2
+text = "Загрузить Игру"
+
+[node name="FullScreen" type="Button" parent="ConfirmationMenu"]
+layout_mode = 2
+text = "Полный экран
+"
+
 [connection signal="pressed" from="HBoxContainer/MarginContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="ConfirmationMenu/Yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="ConfirmationMenu/No" to="." method="_on_no_pressed"]
+[connection signal="pressed" from="ConfirmationMenu/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="ConfirmationMenu/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="ConfirmationMenu/FullScreen" to="." method="_on_full_screen_pressed"]

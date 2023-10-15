@@ -1,10 +1,11 @@
 extends Area2D
 
-enum item_type {ITEM_FRUIT, ITEM_KEY, ITEM_BONUS}
+enum item_type {ITEM_FRUIT, ITEM_KEY, ITEM_D_JUMP, ITEM_BONUS}
 @export var type : item_type
 
 @export var points : int = 1 
 var is_picked : bool = false
+#onready var timer = $Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,6 +25,7 @@ func on_pickup(body):
 	tween1.tween_property($AnimatedSprite2D, "self_modulate:a", 0.0, 1)
 	
 	
+	
 	GlovalVars.score += points
 	if (GlovalVars.score > GlovalVars.hi_score):
 		GlovalVars.hi_score = GlovalVars.score
@@ -40,8 +42,15 @@ func on_pickup(body):
 			body.has_key = true
 		item_type.ITEM_BONUS:
 			pass
-		
+		item_type.ITEM_D_JUMP:
+			body.has_double_jump = true
 		
 	#get_tree().queue_delete(self)
 	queue_free()
+
+
 	
+
+
+func _on_timer_timeout(body) -> void:
+	body.has_double_jump = false
